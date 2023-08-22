@@ -754,11 +754,11 @@
                                        </div>
                                        <div class="wallet__dropdown-top d-flex align-items-end">
                                           <div class="wallet__dropdown-user mr-15">
-                                              @if(Auth::user()->photo)
+                                              {{--  @if(Auth::user()->photo)
                                                   <img src="/avatars/{{ Auth::user()->photo }}" alt="">
-                                              @else
+                                              @else  --}}
                                                   <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
-                                              @endif
+                                              {{--  @endif  --}}
                                           </div>
                                           <div class="wallet__dropdown-user-content">
                                              <h4>{{ Auth::user()->username }}</h4>

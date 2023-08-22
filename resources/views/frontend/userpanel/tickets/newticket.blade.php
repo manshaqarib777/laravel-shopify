@@ -41,12 +41,14 @@
                         <div class="blog__grid-author-thumb mr-10">
 
                            <a href="#">
-                              <!-- <img src="{{asset_dir('newdesign/assets/img/blog/author/blog-author-1.jpg')}}" alt=""> -->
+                                <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
+                              {{--  <!-- <img src="{{asset_dir('newdesign/assets/img/blog/author/blog-author-1.jpg')}}" alt=""> -->
                            @if($shopLogo->value != "")
                               <img src="{{asset_dir('newdesign/assets/img/creator/'.$shopLogo->value)}}" alt="">
                            @else
                               <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
-                           @endif
+                           @endif  --}}
+
                            </a>
                         </div>
                         <div class="blog__grid-author-info">
@@ -75,11 +77,7 @@
                            <div class="blog__grid-author-thumb mr-10">
                               <a href="#">
                                  <!-- <img src="{{asset_dir('newdesign/assets/img/blog/author/blog-author-1.jpg')}}" alt=""> -->
-                                 @if($shopLogo->value != "")
-                                    <img src="{{asset_dir('newdesign/assets/img/creator/'.$shopLogo->value)}}" alt="">
-                                 @else
-                                    <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
-                                 @endif
+                                <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
                               </a>
                            </div>
                            <div class="blog__grid-author-info">

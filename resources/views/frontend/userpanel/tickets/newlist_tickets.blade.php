@@ -43,11 +43,13 @@
                     <div class="col-xxl-12">
                         <div class="profile__cover-wrapper p-relative">
                             <div class="profile__cover w-img tp-img-cover">
-                                @if(Auth::user()->cover != "")
+                                {{--  @if(Auth::user()->cover != "")
                                     <img src="/assets/newdesign/assets/img/creator/<?= Auth::user()->cover ?>" alt="">
                                 @elseif(Auth::user()->cover == "")
                                     <img src="{{asset_dir('newdesign/assets/img/creator/creator-bg-2.jpg')}}" alt="">
-                                @endif
+                                @endif  --}}
+                                <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
+
                             </div>
                             <div class="profile__cover-edit">
                                 <form action="{{ url('update/cover-photo') }}" method="post" id="formCoverData"
@@ -66,11 +68,13 @@
                     <div class="col-xxl-12">
                         <div class="profile__thumb-wrapper  text-center">
                             <div class="profile__thumb text-center tp-img-profile d-inline-block p-relative">
-                                @if(Auth::user()->photo != "")
+                                {{--  @if(Auth::user()->photo != "")
                                     <img src="/assets/newdesign/assets/img/creator/<?= Auth::user()->photo ?>" alt="">
                                 @elseif(Auth::user()->photo == "")
                                     <img src="{{asset_dir('newdesign/assets/img/creator/user-1.jpg')}}" alt="">
-                                @endif
+                                @endif  --}}
+                                <img src="{{asset_dir('newdesign/assets/img/user/user123.jpg')}}" alt="">
+
                                 <div class="profile__thumb-edit">
                                     <form action="{{ url('update/photo') }}" method="post" id="formData"
                                           enctype="multipart/form-data">
