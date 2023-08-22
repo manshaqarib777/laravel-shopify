@@ -27,7 +27,7 @@ class UsersController extends Controller
         if (User::where('id', $id)->exists()) {
             Auth::loginUsingId($id, true);
 
-            return redirect()->route('shop');
+            return redirect()->route('home');
         }
 
         return redirect()->route('backend-management-users');

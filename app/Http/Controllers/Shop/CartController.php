@@ -497,14 +497,14 @@ namespace App\Http\Controllers\Shop;
 
         public function checkout(Request $request)
         {
-
+            //dd($request->product_amount);
             $getCart = UserCart::where("product_id",$request->product_id)->where('user_id', Auth::id())->get()->first();
             $userCart = new UserCart;
             if(empty($getCart)){
                 UserCart::where('user_id', Auth::id())->delete();
                 $userCart->product_id = $request->product_id;
                 $userCart->qty = $request->qty;
-                $userCart->amount = $request->product_amount;
+                $userCart->amount = floatval(str_replace(',', '', $request->product_amount));
                 $userCart->user_id = Auth::user()->id;
                 $userCart->save();
             }

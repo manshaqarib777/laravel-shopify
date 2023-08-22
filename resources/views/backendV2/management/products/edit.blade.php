@@ -16,39 +16,10 @@
         <!--begin::Card-->
         <div class="card">
             <!--begin::Card header-->
-            <div class="card-header border-0 pt-6">
-                <!--begin::Card title-->
-                <div class="card-title">
-                    <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative my-1">
-                        <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-                        <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                            <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
-                                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
-                            </svg> -->
-                        </span>
-                        <!--end::Svg Icon-->
-                        <!-- <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search user" /> -->
-                    </div>
-                    <!--end::Search-->
-                </div>
-                <!--begin::Card title-->
-                <!--begin::Card toolbar-->
-                <div class="card-toolbar">
-                    <!--begin::Toolbar-->
-                    <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                        <!--begin::Filter-->
-                        <!--begin::Menu 1-->
-                        <a href="{{ route('index-with-pageNumber') }}"
-                            class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a>
-
-                    </div>
-                </div>
-            </div>
             <div class="card-body py-4">
+
                 <div class="row">
-                    <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+                    <div class="col-sm-6">
                         @if(!$product->isUnlimited())
                         <a href="{{ route('backend-management-product-database', $product->id) }}"
                             class="btn btn-wide btn-bold btn-primary btn-upper"
@@ -58,6 +29,16 @@
                         <a href="{{ route('product-page', $product->id) }}" target="_shop_product_{{ $product->id }}"
                             class="btn btn-wide btn-bold btn-primary btn-upper"
                             style="margin-bottom:15px">{{ __('backend/management.products.show_product') }}</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="topbtn d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                            <a href="{{ route('index-with-pageNumber') }}"  class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+
 
 
                         <div class="kt-portlet mt-5">
@@ -366,14 +347,14 @@
                     $('button[type="submit"]').addClass('submitstop');
                 }
 
-                
+
             });
 
 
             var load2 = $('#product_edit_old_price_in_cent').val();
             var changed2 = load2.replace(/\./g, ',');
             $('#product_edit_old_price_in_cent').val(changed2);
-            
+
             $('#product_edit_old_price_in_cent').on('change', function(e){
                 //alert(.val());
                 if(e.keyCode == 8){
@@ -382,21 +363,21 @@
                 var n = $(this).val().replace(/\,/g, '').replace(/\./g, '');
                 // alert(n);
                 if(n.match(/^\d+$/)){
-                
+
                     var val = $(this).val().toString();
                     var val1 = val.replace('€', '');
                     var val2 = val1.replace(/\./g, '');
                     var val3 = val2.replace(',', '.')
                     var price = val3.replace(/\s/g, "");
-                    
+
                     let USDollar = new Intl.NumberFormat('it-IT', {
                     style: 'currency',
                     currency: 'EUR',
                     });
-                
+
                 //console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
                 var price2 = USDollar.format(price).toString().replace('€', '').replace(/\s/g, "");
-                
+
                 $(this).val(price2);
                 $(this).removeClass('error')
                 $('button[type="submit"]').removeClass('submitstop');
@@ -404,15 +385,15 @@
             $(this).addClass('error')
                 $('button[type="submit"]').addClass('submitstop');
             }
-            
-            
+
+
             });
         }else{
 
             var load = $('#product_edit_price_in_cent').val();
             var changed = load.replace(/\,/g, '.');
             $('#product_edit_price_in_cent').val(changed);
-            
+
             $('#product_edit_price_in_cent').on('change', function(e){
                 //alert(.val());
                 if(e.keyCode == 8){
@@ -421,7 +402,7 @@
                 var n = $(this).val().replace(/\,/g, '').replace(/\./g, '');
                 // alert(n);
                 if(n.match(/^\d+$/)){
-                
+
                     var val = $(this).val().toString();
                     var val1 = val.replace('$', '');
                     var val2 = val1.replace(/\,/g, '');
@@ -431,10 +412,10 @@
                     style: 'currency',
                     currency: 'USD',
                     });
-                    
+
                     console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
                     var price2 = USDollar.format(price).toString().replace('$', '').replace(/\s/g, "");
-                    
+
                     $(this).val(price2);
                     $(this).removeClass('error')
                     $('button[type="submit"]').removeClass('submitstop');
@@ -448,7 +429,7 @@
             var load2 = $('#product_edit_old_price_in_cent').val();
             var changed2 = load2.replace(/\,/g, '.');
             $('#product_edit_old_price_in_cent').val(changed2);
-            
+
             $('#product_edit_old_price_in_cent').on('change', function(e){
             //alert(.val());
             if(e.keyCode == 8){
@@ -457,7 +438,7 @@
             var n = $(this).val().replace(/\,/g, '').replace(/\./g, '');
             // alert(n);
             if(n.match(/^\d+$/)){
-            
+
             var val = $(this).val().toString();
             var val1 = val.replace('$', '');
             var val2 = val1.replace(/\,/g, '');
@@ -467,10 +448,10 @@
             style: 'currency',
             currency: 'USD',
             });
-            
+
             console.log(`The formated version of ${price} is ${USDollar.format(price)}`);
             var price2 = USDollar.format(price).toString().replace('$', '').replace(/\s/g, "");
-            
+
                 $(this).val(price2);
                     $(this).removeClass('error')
                     $('button[type="submit"]').removeClass('submitstop');
@@ -481,7 +462,7 @@
             });
 
         }
-        
+
         $('body #product_edit_price_in_cent').trigger('change');
         $('body #product_edit_old_price_in_cent').trigger('change');
     });

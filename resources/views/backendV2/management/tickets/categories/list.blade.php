@@ -21,7 +21,7 @@
         i.la.la-edit {
            padding-left: 190px !important;
         }
-        
+
     </style>
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Container-->
@@ -48,24 +48,23 @@
                     </div>
                     <!--begin::Card title-->
                     <!--begin::Card toolbar-->
-                    <div class="card-toolbar">
-                        <!--begin::Toolbar-->
-                        <div class="topbtn d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                            <!--begin::Filter-->
-                            <!--begin::Menu 1-->
-                            <a href="{{ route('index-with-pageNumber') }}"
-                               class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a>
-                               <a href="{{ route('backend-management-ticket-category-add') }}"
-                       class="btn btn-wide btn-bold btn-primary btn-upper"
-                       style="margin-bottom:15px">{{ __('backend/main.add') }}</a>
 
-                        </div>
-                    </div>
                 </div>
                 <div class="card-body py-4">
-                    <a href="{{ route('backend-management-ticket-category-add') }}"
-                       class="btn btn-wide btn-bold btn-primary btn-upper"
-                       style="margin-bottom:15px">{{ __('backend/main.add') }}</a>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="{{ route('backend-management-ticket-category-add') }}" class="btn btn-wide btn-bold btn-primary btn-upper">{{ __('backend/main.add') }}</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="topbtn d-flex justify-content-end" data-kt-user-table-toolbar="base">
+                                <!--begin::Filter-->
+                                <!--begin::Menu 1-->
+                                <a href="{{ route('index-with-pageNumber') }}" class="btn btn-primary" style="margin-right: 10px;">{{ __('backend/management.tickets.go_to_shop') }}</a>
+                                <a href="{{ route('backend-management-ticket-category-add') }}" class="btn btn-wide btn-bold btn-primary btn-upper">{{ __('backend/main.add') }}</a>
+
+                            </div>
+                        </div>
+                    </div>
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users"
                            style="overflow-x: auto; overflow-y: hidden;">
                         <thead>

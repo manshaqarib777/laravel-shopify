@@ -10,7 +10,7 @@
             white-space: nowrap;
         }
         /*-------------------------------Products-------------------------------*/
-        
+
         .card .card-body {
     padding: 20px;
     color: var(--kt-card-color);
@@ -101,7 +101,7 @@
                 </div>
                 <div class="card-body py-4">
 
-                    
+
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users"
                            style="overflow-x: auto; overflow-y: hidden;">
                         <thead>

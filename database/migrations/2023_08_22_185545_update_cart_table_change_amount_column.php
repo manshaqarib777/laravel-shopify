@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShopsTable extends Migration
+class UpdateCartTableChangeAmountColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateShopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
-            $table->id();
-            $table->string('shop_name');
-            $table->integer('shop_id')->default(null);
-            $table->timestamps();
+        Schema::table('users_cart', function (Blueprint $table) {
+            $table->decimal('amount',10,2)->change();
         });
     }
     /**
@@ -27,6 +24,8 @@ class CreateShopsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shops');
+        Schema::table('users_cart', function (Blueprint $table) {
+            $table->int('amount')->change();
+        });
     }
 }

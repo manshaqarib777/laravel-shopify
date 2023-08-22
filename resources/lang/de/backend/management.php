@@ -265,6 +265,7 @@ return [
 
     'tickets' => [
         'title' => 'Tickets',
+        'go_to_shop' => 'Zum Shop',
 
         'edit' => [
             'title' => 'Ticket bearbeiten',

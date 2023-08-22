@@ -9,7 +9,7 @@
         overflow-x: auto;
         white-space: nowrap;
     }
- 
+
     #logo::after {
         content: "Logo";
         position: absolute;
@@ -46,7 +46,7 @@
     }
     .error {
          color: red;
-         
+
     }
     .del-icon{
         margin-top: 47px;
@@ -57,39 +57,39 @@
         width: 75%;
         height: 90%;
         object-fit: cover;
-       
+
     }
-    
+
     /*============= changes =============*/
-    
+
     div#kt_content {
     padding: 0;
 }
-    
+
     .card-header.align-items-center.border-bottom {
     justify-content: flex-start;
     }
-    
+
     [data-theme=dark] .card {
     background-color:rgba(29, 29, 29, 1)!important;
-    }    
+    }
         [data-theme=dark] .card-body{
         background-color:rgba(29, 29, 29, 1)!important;
         }
-        
+
        [data-theme=dark] input#logo {
         background-color:rgba(29, 29, 29, 1)!important;
         border: 2px solid #303030;
         border-radius: 10px;
         }
-        
+
        [data-theme=dark] span.select2-selection.select2-selection--single.form-select.form-select-solid.form-select-lg {
     background-color: rgba(29, 29, 29, 1)!important;
     border: 2px solid #303030;
     border-radius: 10px;
     color: rgba(255, 255, 255, 1);
     margin: 8.36px 0px;
-   
+
 }
 
 span.select2-selection.select2-selection--single.form-select.form-select-solid.form-select-lg {
@@ -97,19 +97,19 @@ span.select2-selection.select2-selection--single.form-select.form-select-solid.f
         background-color: var(--kt-input-bg);
         border: 1px solid var(--kt-input-border-color);
 }
-        
+
         [data-theme=dark] input#banner{
             background-color:rgba(29, 29, 29, 1)!important;
             border: 2px solid #303030;
             border-radius: 10px;
         }
-        
+
         [data-theme=dark] body#kt_body {
         background-color:rgba(0, 0, 0, 1);
-        }   
-    
-    
-    
+        }
+
+
+
     :root .btn:not(.btn-outline):not(.btn-dashed):not(.border-hover):not(.border-active):not(.btn-flush):not(.btn-icon) {
     background-color: #D3F56A!important;
     color: #172C00;
@@ -128,7 +128,7 @@ button#svg-button {
 :root label {
     font-size: 15px!important;
     display: flex;
-   
+
 }
 .form-switch .form-check-input:checked {
     background-color: rgba(211, 245, 106, 1);
@@ -150,12 +150,12 @@ button#svg-button {
     background-image: var(--kt-form-switch-focus-bg-image);
 }
 
-    
+
     /*============= changes end =============*/
-    
-    
+
+
 </style>
-<?php $marque = DB::select('select* from lv_marques where status="1"'); ?>
+<?php $marque = DB::select('select* from lv_marques'); ?>
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Container-->
     <div class="container-xxl" id="kt_content_container">
@@ -289,7 +289,7 @@ button#svg-button {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-6">
                                     <div class="kt-portlet__body">
                                         <div class="kt-section kt-section--first">
@@ -361,7 +361,7 @@ button#svg-button {
                                     @endif
                                  </div>
                                  <div class="col-md-1">
-                                 @if(!empty($shopLogo->value))  
+                                 @if(!empty($shopLogo->value))
                                   <a href="javascript:void(0)" class="logo_delete"> <i class="fa-sharp fa-solid fa-trash del-icon"></i></a>
                                   @endif
                                 </div>
@@ -375,7 +375,7 @@ button#svg-button {
                                                     <div class="form-group mt-5">
                                                         <label for="faq_edit_question" class="h5 d-none" style="font-weight: bold; float: right;">Banner</label>
                                                         <input type="file" class="form-control files" id="banner" onchange="logoUpload(this)" data-type="banner" name="banner" placeholder="" value="" />
-                                                       
+
                                                     </div>
 
                                                     <div>
@@ -394,14 +394,14 @@ button#svg-button {
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                @if(!empty($shopBanner->value))  
+                                @if(!empty($shopBanner->value))
                                     <img src="{{asset('newdesign/assets/img/creator').'/'.$shopBanner->value}}" class="banner_img" alt="">
-                                @endif  
+                                @endif
                                 </div>
                                  <div class="col-md-1">
-                                 @if(!empty($shopBanner->value))  
+                                 @if(!empty($shopBanner->value))
                                      <a href="javascript:void(0)" class="banner_delete"> <i class="fa-sharp fa-solid fa-trash del-icon"></i> </a>
-                                @endif                
+                                @endif
                                     </div>
 
                             </div>
@@ -438,7 +438,7 @@ button#svg-button {
                             <div class="kt-section kt-section--first">
                                 <div class="form-group d-flex  justify-content-between align-items-center">
                                     <div class="d-flex">
-                                        
+
                                         <div class="form-check form-switch">
 
                                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="marquee_status" @foreach($marque as $value) @for($i=0;$i <=1 ;$i++) @if($value->status == 1)

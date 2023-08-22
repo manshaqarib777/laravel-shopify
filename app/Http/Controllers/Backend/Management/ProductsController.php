@@ -220,18 +220,17 @@ namespace App\Http\Controllers\Backend\Management;
 
             $databaseIds = [];
             foreach ($db as $dbItem) {
-                if ($regex) {
+                try {
                     $content = strlen($dbItem->content) > 0 ? decrypt($dbItem->content) : '';
+                } catch (\Exception $exception){
+                    $content = strlen($dbItem->content) > 0 ? $dbItem->content : '';
+                }
 
+                if ($regex) {
                     if (preg_match("/$search/", $content)) {
                         $databaseIds[] = $dbItem->id;
                     }
                 } else {
-                    try {
-                        $content = strlen($dbItem->content) > 0 ? decrypt($dbItem->content) : '';
-                    } catch (\Exception $exception){
-                        $content = strlen($dbItem->content) > 0 ? $dbItem->content : '';
-                    }
 
                     if (stripos($content, $search) !== false) {
                         $databaseIds[] = $dbItem->id;
@@ -451,14 +450,14 @@ namespace App\Http\Controllers\Backend\Management;
                             'product_edit_stock_management'=> 'required|in:normal,weight,unlimited',
                             'product_edit_image' => 'nullable|image'
                         ]);
-                        
+
 
                         if (! $validator->fails()) {
                             $name = $request->input('product_edit_name');
                             $description = $request->input('product_edit_description');
                             $short_description = $request->input('product_edit_short_description');
                             $content = $request->get('product_edit_content') ? $request->input('product_edit_content') : '';
-                            
+
                             $currnet = DB::select("SELECT * FROM lv_settings WHERE `id`= 18;");
                             $currnet_get =  $currnet[0]->value;
 

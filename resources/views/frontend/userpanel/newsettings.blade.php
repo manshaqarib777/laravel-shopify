@@ -84,7 +84,7 @@
                         </article>
 
 
-                        <div class="postbox__comment-form">
+                        <!-- <div class="postbox__comment-form">
                             <h3 class="postbox__comment-form-title">{{ __('Change avatar') }}</h3>
                             <form method="POST" action="{{ route('settings-avatar-change') }}" enctype="multipart/form-data">
                                 @csrf
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
 
                         <div class="postbox__comment-form">
                             <h3 class="postbox__comment-form-title">{{ __('frontend/user.settings_change_password') }}</h3>
